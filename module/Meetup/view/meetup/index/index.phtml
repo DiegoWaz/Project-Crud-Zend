@@ -3,6 +3,7 @@
 <ul>
     <?php foreach ($this->meetups as $meetup): /* @var $meetups Meetup\Controller\IndexController */ ?>
     <li><?= $meetup->getTitle() ?> <a href="<?= $this->url('meetup/edit'); ?>"> edit</a> <a href="<?= $this->url('meetup/delete'); ?>"> delete</a> </li>
+        <li><?= $meetup->getDescription() ?> </li>
     <?php endforeach; ?>
 </ul>
 

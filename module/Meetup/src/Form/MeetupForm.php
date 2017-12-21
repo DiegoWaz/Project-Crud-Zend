@@ -24,6 +24,14 @@ class MeetupForm extends Form implements InputFilterProviderInterface
         ]);
 
         $this->add([
+            'type' => Element\Text::class,
+            'name' => 'description',
+            'options' => [
+                'label' => 'Description',
+            ],
+        ]);
+
+        $this->add([
             'type' => Element\Submit::class,
             'name' => 'submit',
             'attributes' => [
@@ -41,8 +49,19 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                     [
                         'name' => StringLength::class,
                         'options' => [
-                            'min' => 2,
-                            'max' => 4,
+                            'min' => 5,
+                            'max' => 40,
+                        ],
+                    ],
+                ],
+            ],
+            'description' => [
+                'validators' => [
+                    [
+                        'name' => StringLength::class,
+                        'options' => [
+                            'min' => 5,
+                            'max' => 100,
                         ],
                     ],
                 ],
