@@ -19,12 +19,36 @@ class MeetupForm extends Form implements InputFilterProviderInterface
             'type' => Element\Text::class,
             'name' => 'title',
             'options' => [
-                'label' => 'Title',
+                'label' => 'Titre',
             ],
         ]);
 
         $this->add([
             'type' => Element\Text::class,
+            'name' => 'organisateur',
+            'options' => [
+                'label' => 'Organisateur(s)',
+            ],
+        ]);
+
+        $this->add([
+            'type' => Element\Text::class,
+            'name' => 'entreprise',
+            'options' => [
+                'label' => 'Entreprise',
+            ],
+        ]);
+
+        $this->add([
+            'type' => Element\Number::class,
+            'name' => 'participant',
+            'options' => [
+                'label' => 'Nombre de Participants',
+            ],
+        ]);
+
+        $this->add([
+            'type' => Element\Textarea::class,
             'name' => 'description',
             'options' => [
                 'label' => 'Description',
@@ -35,7 +59,16 @@ class MeetupForm extends Form implements InputFilterProviderInterface
             'type' => Element\Submit::class,
             'name' => 'submit',
             'attributes' => [
-                'value' => 'Submit',
+                'value' => 'submit',
+            ],
+        ]);
+
+        $this->add([
+            'type' => Element\DateTime::class,
+            'name' => 'date',
+            'options' => [
+                'label' => 'Date',
+                'format' => 'Y-m-d\TH:iP',
             ],
         ]);
 
@@ -65,7 +98,7 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                         ],
                     ],
                 ],
-            ],
+            ]
         ];
     }
 }

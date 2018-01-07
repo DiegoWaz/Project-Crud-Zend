@@ -21,6 +21,15 @@ return [
                 ],
                 'may_terminate' => true,
                 'child_routes' => [
+                    'fiche' => [
+                        'type' => Literal::class,
+                        'options' => [
+                            'route'    => '/fiche',
+                            'defaults' => [
+                                'action'     => 'fiche',
+                            ],
+                        ],
+                    ],
                     'add' => [
                         'type' => Literal::class,
                         'options' => [
@@ -65,6 +74,7 @@ return [
     'view_manager' => [
         'template_map' => [
             'meetup/index/index' => __DIR__ . '/../view/meetup/index/index.phtml',
+            'meetup/index/fiche' => __DIR__ . '/../view/meetup/index/fiche.phtml',
             'meetup/index/add' => __DIR__ . '/../view/meetup/index/add.phtml',
             'meetup/index/edit' => __DIR__ . '/../view/meetup/index/edit.phtml',
             'meetup/index/delete' => __DIR__ . '/../view/meetup/index/delete.phtml',

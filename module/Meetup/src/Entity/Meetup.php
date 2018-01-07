@@ -33,12 +33,63 @@ class Meetup
      * @ORM\Column(type="string", length=2000, nullable=false)
      */
     private $description = '';
+    private $date;
+    private $organisateur;
+    private $entreprise;
+    private $participant;
 
-    public function __construct(string $title, string $description = '')
+    /**
+     * Meetup constructor.
+     * @param $id
+     * @param $title
+     * @param string $description
+     * @param $date
+     * @param $organisateur
+     * @param $entreprise
+     * @param $participant
+     */
+
+    public function __construct($id, string $title, string $description = '', $date, $organisateur, $entreprise, $participant)
     {
         $this->id = Uuid::uuid4()->toString();
         $this->title = $title;
         $this->description = $description;
+        $this->date = $date;
+        $this->organisateur = $organisateur;
+        $this->entreprise = $entreprise;
+        $this->participant = $participant;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOrganisateur()
+    {
+        return $this->organisateur;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEntreprise()
+    {
+        return $this->entreprise;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getParticipant()
+    {
+        return $this->participant;
     }
 
     /**
@@ -54,8 +105,4 @@ class Meetup
         return $this->description;
     }
 
-    public function setDescription(string $description) : void
-    {
-        $this->description = $description;
-    }
 }
